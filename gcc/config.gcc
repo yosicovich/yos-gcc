@@ -1097,7 +1097,7 @@ arm*-*-uclinux*eabi*)		# ARM ucLinux
 	# The EABI requires the use of __cxa_atexit.
 	default_use_cxa_atexit=yes
 	;;
-arm*-*-eabi* | arm*-*-symbianelf* | arm*-*-rtems*)
+arm*-*-eabi* | arm*-*-symbianelf* | arm*-*-rtems* | arm*-*-yos*)
 	case ${target} in
 	arm*eb-*-eabi*)
 	  tm_defines="${tm_defines} TARGET_BIG_ENDIAN_DEFAULT=1"
@@ -1106,7 +1106,7 @@ arm*-*-eabi* | arm*-*-symbianelf* | arm*-*-rtems*)
 	tm_file="dbxelf.h elfos.h arm/unknown-elf.h arm/elf.h arm/bpabi.h"
 	tmake_file="${tmake_file} arm/t-arm arm/t-arm-elf"
 	case ${target} in
-	arm*-*-eabi*)
+	arm*-*-eabi* | arm*-*-yos*)
 	  tm_file="$tm_file newlib-stdint.h"
 	  tmake_file="${tmake_file} arm/t-bpabi"
 	  use_gcc_stdint=wrap

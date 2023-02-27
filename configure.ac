@@ -334,7 +334,7 @@ case "${ENABLE_GOLD}" in
     # Check for ELF target.
     is_elf=no
     case "${target}" in
-      *-*-elf* | *-*-sysv4* | *-*-unixware* | *-*-eabi* | hppa*64*-*-hpux* \
+      *-*-elf* | *-*-sysv4* | *-*-unixware* | *-*-eabi* | *-*-yos* | hppa*64*-*-hpux* \
       | *-*-linux* | *-*-gnu* | frv-*-uclinux* | *-*-irix5* | *-*-irix6* \
       | *-*-netbsd* | *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* \
       | *-*-solaris2* | *-*-nto* | *-*-nacl*)
@@ -1096,6 +1096,10 @@ case "${target}" in
     ;;
   arc-*-*|arceb-*-*)
     noconfigdirs="$noconfigdirs target-libgloss"
+    ;;
+  arm*-*-yos* )
+    noconfigdirs="$noconfigdirs target-libgloss"
+#    libgloss_dir=arm
     ;;
   arm-*-pe*)
     noconfigdirs="$noconfigdirs target-libgloss"
